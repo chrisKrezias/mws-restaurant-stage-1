@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-site-cache-v1';
+var cache_name = 'my-site-cache-v1';
 var urlsToCache = [
     '/',
     'js/main.js',
@@ -9,9 +9,7 @@ var urlsToCache = [
 
 self.addEventListener('install', function(event) {
     // Perform install steps
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-        .then(function(cache) {
+    event.waitUntil(caches.open(cache_name).then(function(cache) {
             console.log('Opened cache');
             return cache.addAll(urlsToCache);
         })
@@ -19,9 +17,7 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request)
-        .then(function(response) {
+    event.respondWith(caches.match(event.request).then(function(response) {
             // Cache hit - return response
             if (response) {
                 return response;
@@ -33,8 +29,7 @@ self.addEventListener('fetch', function(event) {
             // to clone the response.
             var fetchRequest = event.request.clone();
 
-            return fetch(fetchRequest).then(
-                function(response) {
+            return fetch(fetchRequest).then(function(response) {
                     // Check if we received a valid response
                     if (!response || response.status !== 200 || response.type !== 'basic') {
                         return response;
@@ -46,8 +41,7 @@ self.addEventListener('fetch', function(event) {
                     // to clone it so we have two streams.
                     var responseToCache = response.clone();
 
-                    caches.open(CACHE_NAME)
-                        .then(function(cache) {
+                    caches.open(cache_name).then(function(cache) {
                             cache.put(event.request, responseToCache);
                         });
 
