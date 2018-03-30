@@ -141,27 +141,35 @@ createRestaurantHTML = (restaurant) => {
     const picture = document.createElement('picture');
     li.append(picture);
 
-    const source = document.createElement('source');
-    source.srcset = DBHelper.smallImageUrlForRestaurant(restaurant);
-    source.setAttribute("media", "(max-width: 674px)");
-    picture.appendChild(source);
+    const source_small = document.createElement('source');
+    source_small.srcset = DBHelper.smallImageUrlForRestaurant(restaurant);
+    source_small.setAttribute("media", "(max-width: 674px)");
+    picture.appendChild(source_small);
+
+    const source_large = document.createElement('source');
+    source_large.srcset = DBHelper.imageUrlForRestaurant(restaurant);
+    source_large.setAttribute("media", "(min-width: 675px)");
+    picture.appendChild(source_large);
 
     const image = document.createElement('img');
     image.className = 'restaurant-img';
-    image.src = DBHelper.imageUrlForRestaurant(restaurant);
+    image.src = DBHelper.smallImageUrlForRestaurant(restaurant);
     image.setAttribute("alt", restaurant.name);
     picture.appendChild(image);
 
     const name = document.createElement('h1');
     name.innerHTML = restaurant.name;
+    name.setAttribute("tabindex", "0");
     li.append(name);
 
     const neighborhood = document.createElement('p');
     neighborhood.innerHTML = restaurant.neighborhood;
+    neighborhood.setAttribute("tabindex", "0");
     li.append(neighborhood);
 
     const address = document.createElement('p');
     address.innerHTML = restaurant.address;
+    address.setAttribute("tabindex", "0");
     li.append(address);
 
     const more = document.createElement('a');

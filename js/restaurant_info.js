@@ -57,14 +57,19 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
     const picture = document.getElementById('restaurant-img');
 
-    const source = document.createElement('source');
-    source.srcset = DBHelper.smallImageUrlForRestaurant(restaurant);
-    source..setAttribute("media", "(max-width: 674px)");
-    picture.append(source);
+    const source_small = document.createElement('source');
+    source_small.srcset = DBHelper.smallImageUrlForRestaurant(restaurant);
+    source_small.setAttribute("media", "(max-width: 674px)");
+    picture.append(source_small);
+
+    const source_large = document.createElement('source');
+    source_large.srcset = DBHelper.imageUrlForRestaurant(restaurant);
+    source_large.setAttribute("media", "(min-width: 675px)");
+    picture.appendChild(source_large);
 
     const image = document.createElement('img');
     image.className = 'restaurant-img';
-    image.src = DBHelper.imageUrlForRestaurant(restaurant);
+    image.src = DBHelper.smallImageUrlForRestaurant(restaurant);
     image.setAttribute("alt", restaurant.name);
     picture.append(image);
 
@@ -137,19 +142,27 @@ createReviewHTML = (review) => {
     date.classList.add("res-date");
     head.appendChild(date);
     head.classList.add("res-head");
+    head.setAttribute("tabindex", "0");
+
     li.appendChild(head);
+
 
     const rating = document.createElement('p');
     const rate_text = document.createElement('span');
     rate_text.innerHTML = `Rating: ${review.rating}`;
     rate_text.classList.add("res-rating");
     rating.appendChild(rate_text);
+    rating.setAttribute("tabindex", "0");
     li.appendChild(rating);
 
     const comments = document.createElement('p');
     comments.innerHTML = review.comments;
     comments.classList.add("res-comments");
+    comments.setAttribute("tabindex", "0");
     li.appendChild(comments);
+
+    li.setAttribute("tabindex", "0");
+    li.setAttribute("aria-label", "Review");
 
     return li;
 }

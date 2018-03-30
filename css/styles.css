@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+
 /* CSS Document */
 
 html,
@@ -95,7 +96,33 @@ header {
 }
 
 
+
 /* ====================== Navigation ====================== */
+
+.skip {
+    left: -999px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -999;
+}
+
+.skip:focus,
+.skip:active {
+    color: #fff;
+    background-color: red;
+    left: 0px;
+    top: 0px;
+    width: 20%;
+    height: auto;
+    overflow: auto;
+    border: 5px solid white;
+    text-align: center;
+    font-size: 1em;
+    z-index: 999;
+}
 
 nav {
     width: 100%;
@@ -127,11 +154,13 @@ nav h1 a {
 }
 
 
+
 /* Display list items side by side */
 
 #breadcrumb li {
     display: inline;
 }
+
 
 
 /* Add a slash symbol (/) before/behind each list item */
@@ -143,12 +172,14 @@ nav h1 a {
 }
 
 
+
 /* Add a color to all links inside the list */
 
 #breadcrumb li a {
     color: #0275d8;
     text-decoration: none;
 }
+
 
 
 /* Add a color on mouse-over */
@@ -159,6 +190,7 @@ nav h1 a {
 }
 
 
+
 /* ====================== Map ====================== */
 
 #map {
@@ -166,6 +198,7 @@ nav h1 a {
     width: 100%;
     background-color: #ccc;
 }
+
 
 
 /* ====================== Restaurant Filtering ====================== */
@@ -198,6 +231,7 @@ nav h1 a {
     width: 43%;
     max-width: 200px;
 }
+
 
 
 /* ====================== Restaurant Listing ====================== */
@@ -260,6 +294,7 @@ nav h1 a {
 }
 
 
+
 /* ====================== Restaurant Details ====================== */
 
 .inside header {
@@ -299,7 +334,7 @@ nav h1 a {
 
 #restaurant-img {
     width: 90%;
-    max-width:546px;
+    max-width: 546px;
 }
 
 #restaurant-address {
@@ -428,7 +463,7 @@ nav h1 a {
     }
 
     #reviews-list li {
-      width: 85%;
+        width: 85%;
     }
 }
 
@@ -438,16 +473,16 @@ nav h1 a {
     }
 
     #reviews-list li {
-      width: 45%;
+        width: 45%;
     }
 }
 
 @media only screen and (min-width:1024px) {
     #restaurants-list li {
-      width: 270px;
+        width: 270px;
     }
 
     #reviews-list li {
-      width: 45%;
+        width: 45%;
     }
 }

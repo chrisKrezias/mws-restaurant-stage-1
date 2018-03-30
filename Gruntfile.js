@@ -8,7 +8,8 @@ module.exports = function(grunt) {
             name: 'small',
             width: '50%',
             suffix: '',
-            quality: 20
+            quality: 20,
+            cache: false
           }]
         },
         files: [{
