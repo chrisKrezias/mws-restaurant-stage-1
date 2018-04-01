@@ -142,19 +142,21 @@ createRestaurantHTML = (restaurant) => {
     li.append(picture);
 
     const source_small = document.createElement('source');
-    source_small.srcset = DBHelper.smallImageUrlForRestaurant(restaurant);
+    source_small.setAttribute("data-srcset", DBHelper.smallImageUrlForRestaurant(restaurant));
     source_small.setAttribute("media", "(max-width: 674px)");
     picture.appendChild(source_small);
 
     const source_large = document.createElement('source');
-    source_large.srcset = DBHelper.imageUrlForRestaurant(restaurant);
+    source_large.setAttribute("data-srcset", DBHelper.imageUrlForRestaurant(restaurant));    
     source_large.setAttribute("media", "(min-width: 675px)");
     picture.appendChild(source_large);
 
     const image = document.createElement('img');
     image.className = 'restaurant-img';
-    image.src = DBHelper.imageUrlForRestaurant(restaurant);
+    image.src = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+    image.setAttribute("data-src", DBHelper.imageUrlForRestaurant(restaurant));
     image.setAttribute("alt", restaurant.name);
+    image.classList.add("lazyload");
     picture.appendChild(image);
 
     const name = document.createElement('h3');

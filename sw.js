@@ -1,6 +1,7 @@
 var cache_name = 'my-site-cache-v1';
 var urlsToCache = [
     '/',
+    'js/lazysizes.min.js',
     'js/main.js',
     'js/dbhelper.js',
     'js/restaurant_info.js',

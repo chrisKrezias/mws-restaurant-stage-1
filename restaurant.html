@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <!-- Beginning scripts -->
     <!-- Database helpers -->
-    <script type="text/javascript" src="js/dbhelper.js"></script>
-    <!-- Main javascript file -->
-    <script type="text/javascript" src="js/restaurant_info.js"></script>
-    <!-- Google Maps -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9xwSuL6xsPdR9eo39tiZxz84sDPH7fAc&libraries=places&callback=initMap"></script>
     <!-- End scripts -->
     <title>Restaurant Info</title>
 </head>
@@ -31,9 +26,9 @@
     </header>
     <!-- Beginning breadcrumb -->
     <nav aria-label="Breadcrumb" tabindex="0">
-        <ul id="breadcrumb">
+        <ol id="breadcrumb">
             <li><a href="/">Home</a></li>
-        </ul>
+        </ol>
     </nav>
     <!-- End breadcrumb -->
     <!-- End header -->
@@ -47,7 +42,7 @@
         <!-- Beginning restaurant -->
         <div id="main" class="details-container" tabindex="0">
             <section id="restaurant-container" tabindex="0" aria-label="Restaurant Details">
-                <h1 id="restaurant-name" tabindex="0"></h1>
+                <h3 id="restaurant-name" tabindex="0"></h3>
                 <section id="restaurant-info" tabindex="0" aria-label="Restaurant Information">
                     <p id="restaurant-cuisine" tabindex="0"></p>
                     <p id="restaurant-address" tabindex="0"></p>
@@ -67,7 +62,14 @@
     <footer id="footer">
         Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
     </footer>
+    <!-- Lazysizes library -->
+    <script type="text/javascript" src="js/lazysizes.min.js"></script>
     <!-- End footer -->
+    <script type="text/javascript" src="js/dbhelper.js"></script>
+    <!-- Main javascript file -->
+    <script type="text/javascript" src="js/restaurant_info.js"></script>
+    <!-- Google Maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9xwSuL6xsPdR9eo39tiZxz84sDPH7fAc&libraries=places&callback=initMap"></script>
 </body>
 
 </html>
